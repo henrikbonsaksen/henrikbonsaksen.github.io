@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1 >Kan du spør utviklerne om hjelp? </h1>
+<h1 id="yes" style="color:white; background-color: green;">Ja</h1>
+<h1 id="no" style="color:white; background-color: red;">Nei</h1>
+<h1 id="helst-ikke" style="color:white; background-color: orange;">Helst ikke, bare om det er viktig!</h1>
+
+<script>
+
+var yes = document.getElementById('yes');
+var no = document.getElementById('no');
+var helstikke = document.getElementById('helst-ikke');
+yes.hidden = true;
+no.hidden = true;
+var time = new Date(Date.now());
+
+var illegaltimeStart = new Date(time);
+illegaltimeStart.setHours(10);
+illegaltimeStart.setMinutes(0);
+illegaltimeStart.setSeconds(0);
+
+var illegaltimeEnd = new Date(time);
+illegaltimeEnd.setHours(11);
+illegaltimeEnd.setMinutes(20);
+illegaltimeEnd.setSeconds(0);
+
+var questionTime1Start = new Date(time);
+questionTime1Start.setHours(8);
+questionTime1Start.setMinutes(20);
+questionTime1Start.setSeconds(0);
+var questionTime1End = new Date(time);
+questionTime1End.setHours(8);
+questionTime1End.setMinutes(30);
+questionTime1End.setSeconds(0);
+
+var questionTime2Start = new Date(time);
+questionTime2Start.setHours(11);
+questionTime2Start.setMinutes(20);
+questionTime2Start.setSeconds(0);
+var questionTime2End = new Date(time);
+questionTime2End.setHours(11);
+questionTime2End.setMinutes(30);
+questionTime2End.setSeconds(0);
+
+var questionTime3Start = new Date(time);
+questionTime3Start.setHours(15);
+questionTime3Start.setMinutes(20);
+questionTime3Start.setSeconds(0);
+var questionTime3End = new Date(time);
+questionTime3End.setHours(15);
+questionTime3End.setMinutes(30);
+questionTime3End.setSeconds(0);
+
+var yesno = function () {
+    if (time > illegaltimeStart && time < illegaltimeEnd) {
+    	no.hidden = false;
+        yes.hidden = true;
+    } else if (time > questionTime1Start && time < questionTime1End) {
+    	yes.hidden = false;
+        no.hidden = true;
+    } else if (time > questionTime2Start && time < questionTime2End) {
+        yes.hidden = false;
+        no.hidden = true;
+    } else if (time > questionTime3Start && time < questionTime3End) {
+        yes.hidden = false;
+        no.hidden = true;
+    } else {
+    helstikke.hidden = false;
+    console.log(time);
+    }
+}
+setTimeout(yesno, 1000);
+</script>
+</body>
+</html>
